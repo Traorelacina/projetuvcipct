@@ -18,6 +18,11 @@ class User extends Authenticatable
     protected $fillable = [
         'nom', 'prenom', 'adresse', 'telephone', 'email', 'metier',
         'pays', 'ville', 'commune', 'quartier', 'experience', 'description', 'password',
+        'site_web', 'twitter', 'instagram', 'facebook' ,'site_web',
+        'twitter',
+        'instagram',
+        'facebook',
+        'profile_image',
     ];
 
     /**
@@ -37,4 +42,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function portfolioItems()
+    {
+        return $this->hasMany(PortfolioItem::class);
+    }
 }
+
+
