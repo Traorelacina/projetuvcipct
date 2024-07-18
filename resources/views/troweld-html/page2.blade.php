@@ -65,7 +65,7 @@
                   <a class="nav-link" href=" {{ route('page5') }}">Besoin</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href=" {{ route('register') }}">
+                  <a class="nav-link" href=" {{ route('redire') }}">
                     <i class="fa fa-user" aria-hidden="true"></i>
                     <span>
                       Connexion

@@ -41,11 +41,40 @@ Route::get('/page5', function() {
     return view('troweld-html.page5');
 }) ->name('page5');
 
+/*Route::get('/redire', function () {
+    return view('troweld-html.redire');
+}) ->name('redire');*/
+
+
 Route::get('/register', function() {
     return view('register');
 }) ->name('register');
 
 
+
+
+
+use App\Http\Controllers\Auth\LoginController;
+
+Auth::routes();
+/*Route::post('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('logout');*/
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+use App\Http\Controllers\ProfileController;
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+});
+
+
+
+
+Route::put('/profile/update-image', [ProfileController::class, 'updateImage'])->name('profile.update.image');
+Route::put('/profile/update-portfolio', [ProfileController::class, 'updatePortfolio'])->name('profile.update.portfolio');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
