@@ -15,9 +15,13 @@ class CreatePortfolioItemsTable extends Migration
     {
         Schema::create('portfolio_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('path');
+            $table->unsignedBigInteger('user_id');
+            $table->string('title');
+            $table->text('description')->nullable();
+            $table->string('image_path')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
