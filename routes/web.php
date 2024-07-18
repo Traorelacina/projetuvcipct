@@ -78,3 +78,15 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
+<<<<<<< HEAD
+=======
+use App\Http\Controllers\ProfileController;
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+});
+
+Route::put('/profile/update-image', [ProfileController::class, 'updateImage'])->name('profile.update.image');
+Route::put('/profile/update-portfolio', [ProfileController::class, 'updatePortfolio'])->name('profile.update.portfolio');
+>>>>>>> e3d63ae63ffaa1c481d8f5bfc66cee72b6ba448e
